@@ -1,148 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دعاية وإعلان - خالد محيي الدين</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعاية وإعلان - خالد محي الدين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ebee;
+            margin: 0;
+            padding: 0;
+            direction: rtl; /* يجعل المحتوى من اليمين */
+        }
+        .header {
+            background-color: #4267B2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .profile-pic {
+            display: block;
+            margin: 20px auto;
+            width: 100px; /* حجم الصورة */
+            height: 100px; /* حجم الصورة */
+            border-radius: 50%; /* شكل دائري */
+            object-fit: cover; /* قص الصورة بشكل مناسب */
+        }
+        .search-bar {
+            max-width: 600px;
+            margin: 20px auto;
+            display: flex;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .info {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .info b {
+            color: #333;
+        }
+        .info a {
+            color: #4267B2;
+            text-decoration: none;
+        }
+        .info a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .social-buttons button {
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .social-buttons button i {
+            margin-left: 5px;
+        }
+        .social-buttons button:hover {
+            background-color: #365899;
+        }
+        .services {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .services b {
+            color: #333;
+        }
+        .services i {
+            color: #4267B2;
+            margin-right: 5px;
+        }
+        .sidebar {
+            background-color: white;
+            padding: 10px;
+            margin-top: 20px; /* مسافة بين المحتوى والقائمة */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            display: block;
+            margin: 5px 0;
+            color: #4267B2;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .platforms {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .platforms a {
+            margin: 0 10px;
+            color: #4267B2;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .quote {
+            font-size: 16px;
+            font-style: italic;
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        function handleSearch() {
+            const input = document.getElementById('searchInput').value;
+            if (input) {
+                window.open(`https://www.facebook.com/search/top?q=${encodeURIComponent(input)}`, '_blank');
+            }
+        }
 
-    body {
-      background-color: #f0f2f5;
-      margin: 0;
-      padding: 0;
-    }
+        function handleLike() {
+            alert('تم تسجيل إعجابك!');
+        }
 
-    .header {
-      background-color: #3b5998;
-      color: white;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      direction: rtl;
-    }
-
-    .header .icons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .header .icons i {
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .header input {
-      width: 100%;
-      max-width: 400px;
-      padding: 8px;
-      border-radius: 20px;
-      border: none;
-      outline: none;
-      text-align: right;
-    }
-
-    .main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      direction: rtl;
-    }
-
-    .post {
-      background-color: white;
-      width: 100%;
-      max-width: 600px;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: right;
-    }
-
-    .post h3 {
-      color: #3b5998;
-      margin-bottom: 10px;
-    }
-
-    .post p {
-      margin: 10px 0;
-      line-height: 1.6;
-    }
-
-    .contact a {
-      color: #3b5998;
-      text-decoration: none;
-      display: block;
-      margin: 5px 0;
-      font-weight: bold;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 20px;
-      text-align: center;
-      color: #555;
-    }
-  </style>
+        function handleShare() {
+            alert('تمت مشاركة المحتوى بنجاح!');
+        }
+    </script>
 </head>
 <body>
+    <div class="header">
+        <i class="fab fa-facebook"></i> دعاية وإعلان - خالد محي الدين
+    </div>
 
-  <div class="header">
-    <h2>دعاية وإعلان</h2>
-    <input type="text" placeholder="بحث في فيسبوك" id="search">
-    <div class="icons">
-      <i class="fas fa-home"></i>
-      <i class="fas fa-bell"></i>
-      <i class="fas fa-user-circle"></i>
-    </div>
-  </div>
+    <img src="https://i.ibb.co/ZY48NTK/Picsart-24-10-20-14-00-45-263.png" alt="صورة بروفايل" class="profile-pic">
 
-  <div class="main">
-    <div class="post">
-      <h3>خالد محيي الدين</h3>
-      <p>
-        لو محتاجين تصاميم إبداعية لملصقات إعلانية تخطف الأنظار أو عايزين تروجوا صفحاتكم على السوشيال ميديا وتوصلوا لأكبر عدد ممكن من العملاء، إحنا هنا عشان نساعدكم! 🚀
-      </p>
-      <p>💼 متخصصون في:</p>
-      <ul>
-        <li>إدارة احترافية لصفحات السوشيال ميديا 📱</li>
-        <li>تسويق إعلاني لزيادة التفاعل والوصول 🎯</li>
-      </ul>
-      <p>🔥 ما تفوتوش عرض الخصومات الكبير للمشتركين الجدد!</p>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="ابحث عن أعمالنا على فيسبوك..." oninput="this.value='01018282460'">
+    </div>
 
-      <div class="contact">
-        <p>📲 للتواصل:</p>
-        <a href="https://wa.me/201018282460" target="_blank">📞 01018282460</a>
-        <a href="https://wa.me/201033730233" target="_blank">📞 01033730233</a>
-        <p>📧 البريد الإلكتروني: <a href="mailto:khmohieldin@gmail.com">khmohieldin@gmail.com</a></p>
-        <p>🔗 زوروا صفحتنا على فيسبوك: <a href="https://www.facebook.com/d3ayawe3lan" target="_blank">دعاية وإعلان</a></p>
-      </div>
-    </div>
-  </div>
+    <div class="container">
+        <div class="info">
+            <p><b>الاسم:</b> خالد محي الدين</p>
+            <p><b>الهاتف:</b> 
+                <a href="https://wa.me/201018282460" target="_blank">01018282460</a> - 
+                <a href="https://wa.me/201033730233" target="_blank">01033730233</a>
+            </p>
+            <p><b>البريد الإلكتروني:</b> 
+                <a href="mailto:khmohieldin@gmail.com">khmohieldin@gmail.com</a>
+            </p>
+            <p><b>تابعونا على فيسبوك:</b> 
+                <a href="https://www.facebook.com/d3ayawe3lan" target="_blank">دعاية وإعلان</a>
+            </p>
+        </div>
 
-  <footer>
-    💡 خليك في المقدمة مع خدمات تسويقية احترافية!
-  </footer>
+        <div class="social-buttons">
+            <button onclick="handleLike()"><i class="fas fa-thumbs-up"></i> إعجاب</button>
+            <button onclick="handleShare()"><i class="fas fa-share"></i> مشاركة</button>
+        </div>
 
-  <script>
-    document.getElementById('search').addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        window.location.href = 'https://www.facebook.com/search/top?q=01018282460';
-      }
-    });
-  </script>
+        <div class="services">
+            <p>
+                <b>نحن نقدم:</b><br>
+                <i class="fas fa-paint-brush"></i> تصميم ملصقات إعلانية وفيديوهات.<br>
+                <i class="fas fa-users"></i> إدارة صفحات سوشيال ميديا.<br>
+                <i class="fas fa-chart-line"></i> وضع خطط تسويقية.<br>
+                <i class="fas fa-comments"></i> تقديم استشارات فنية.<br>
+                لدينا خبرة 25 سنة مع سابقة أعمال كثيرة في كافة المجالات.<br>
+                نحن متاحون في أي وقت مع تخفيضات كبيرة في الأسعار، وجاهزون لتمويل إعلانات مدفوعة.
+            </p>
+        </div>
 
-</body>
-</html>
+        <div class="quote">
+            "التصميم هو التفكير بصوت عالٍ." - مارتن سكورسيزي
+        </div>
+
+        <div class="footer">© 2024 - خالد محي الدين</div>
+    </div>
+
+    <div class="sidebar">
+        <h3>برامج التصميم على الأندرويد</h3>
+        <a href="https://play.google.com/store/apps/details?id=com.adobe.creativeapps.fresco&amp;hl=ar&amp;gl=US">Adobe Fresco</a>
+        <a href="https://play.google.com/store/apps/details?id=com.canva.editor&amp;hl=ar&amp;gl=US">Canva</a>
+        <a href="https://play.google.com/store/apps/details?id=com.autodesk.sketchbook&amp;hl=ar&amp;gl=US">Autodesk SketchBook</a>
+        <a href="https://play.google.com/store/apps/details?id=com.pixlr.express&amp;hl=ar&amp;gl=US">Pixlr</a>
+        <a href="https://play.google.com/store/apps/details?id=com.vector&amp;hl=ar&amp;gl=US">Vector</a>
+    </div>
+
+    <div class="platforms">
+        <a href="https://twitter.com/Designerkhaled" target="_blank"><i class="fab fa-x"></i> X</a>
+        <a href="https://www.tiktok.com/@khaledmohyaldeen" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="https://www.instagram.com/designerkhaledmohi/" target="_blank"><i class="fab fa-instagram"></i> Instagram&lt;/</a></div></body></html>
