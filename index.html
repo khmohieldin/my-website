@@ -74,7 +74,7 @@
         }
         .social-buttons {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* يجعل الأزرار في المنتصف */
             margin-top: 15px;
         }
         .social-buttons button {
@@ -85,6 +85,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            margin: 0 5px;
         }
         .social-buttons button i {
             margin-left: 5px;
@@ -104,36 +105,6 @@
             color: #4267B2;
             margin-right: 5px;
         }
-        .sidebar {
-            background-color: white;
-            padding: 10px;
-            margin-top: 20px; /* مسافة بين المحتوى والقائمة */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .sidebar h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        .sidebar a {
-            display: block;
-            margin: 5px 0;
-            color: #4267B2;
-            text-decoration: none;
-        }
-        .sidebar a:hover {
-            text-decoration: underline;
-        }
-        .platforms {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .platforms a {
-            margin: 0 10px;
-            color: #4267B2;
-            font-size: 24px;
-            text-decoration: none;
-        }
         .quote {
             font-size: 16px;
             font-style: italic;
@@ -145,33 +116,47 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        .platforms {
+            display: flex;
+            justify-content: center; /* يجعل الأيقونات في المنتصف */
+            margin-top: 20px;
+        }
+        .platforms a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #4267B2;
+        }
     </style>
     <script>
         function handleSearch() {
-            const input = document.getElementById('searchInput').value;
-            if (input) {
-                window.open(`https://www.facebook.com/search/top?q=${encodeURIComponent(input)}`, '_blank');
-            }
-        }
-
-        function handleLike() {
-            alert('تم تسجيل إعجابك!');
+            // البحث عن الرقم مباشرة
+            const phoneNumber = "01018282460";
+            window.open(`https://www.facebook.com/search/top?q=${encodeURIComponent(phoneNumber)}`, '_blank');
         }
 
         function handleShare() {
-            alert('تمت مشاركة المحتوى بنجاح!');
+            // مشاركة على فيسبوك
+            const url = "https://www.facebook.com/d3ayawe3lan"; // رابط صفحة الفيسبوك
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function handlePageRedirect() {
+            // الانتقال إلى صفحة الدعاية والإعلان
+            window.open("https://www.facebook.com/d3ayawe3lan", "_blank");
         }
     </script>
 </head>
 <body>
-    <div class="header">
+    <div class="header" onclick="handlePageRedirect()">
         <i class="fab fa-facebook"></i> دعاية وإعلان - خالد محي الدين
     </div>
 
     <img src="https://i.ibb.co/ZY48NTK/Picsart-24-10-20-14-00-45-263.png" alt="صورة بروفايل" class="profile-pic">
 
     <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="ابحث عن أعمالنا على فيسبوك..." oninput="this.value='01018282460'">
+        <input type="text" id="searchInput" placeholder="ابحث عن أعمالنا على فيسبوك..." onfocus="this.value=''" onblur="this.value='ابحث عن أعمالنا على فيسبوك...'">
+        <button onclick="handleSearch()">بحث</button>
     </div>
 
     <div class="container">
@@ -190,13 +175,12 @@
         </div>
 
         <div class="social-buttons">
-            <button onclick="handleLike()"><i class="fas fa-thumbs-up"></i> إعجاب</button>
             <button onclick="handleShare()"><i class="fas fa-share"></i> مشاركة</button>
         </div>
 
         <div class="services">
             <p>
-                <b>نحن نقدم:</b><br>
+                <b>خدماتنا:</b><br>
                 <i class="fas fa-paint-brush"></i> تصميم ملصقات إعلانية وفيديوهات.<br>
                 <i class="fas fa-users"></i> إدارة صفحات سوشيال ميديا.<br>
                 <i class="fas fa-chart-line"></i> وضع خطط تسويقية.<br>
@@ -211,18 +195,15 @@
         </div>
 
         <div class="footer">© 2024 - خالد محي الدين</div>
+        
+        <div class="services" style="text-align: center;">
+            <b>قريباً معرض أعمالنا</b>
+        </div>
+
+        <div class="platforms">
+            <a href="https://twitter.com/Designerkhaled" target="_blank"><i class="fab fa-x"></i></a>
+            <a href="https://www.tiktok.com/@khaledmohyaldeen" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
     </div>
 
-    <div class="sidebar">
-        <h3>برامج التصميم على الأندرويد</h3>
-        <a href="https://play.google.com/store/apps/details?id=com.adobe.creativeapps.fresco&amp;hl=ar&amp;gl=US">Adobe Fresco</a>
-        <a href="https://play.google.com/store/apps/details?id=com.canva.editor&amp;hl=ar&amp;gl=US">Canva</a>
-        <a href="https://play.google.com/store/apps/details?id=com.autodesk.sketchbook&amp;hl=ar&amp;gl=US">Autodesk SketchBook</a>
-        <a href="https://play.google.com/store/apps/details?id=com.pixlr.express&amp;hl=ar&amp;gl=US">Pixlr</a>
-        <a href="https://play.google.com/store/apps/details?id=com.vector&amp;hl=ar&amp;gl=US">Vector</a>
-    </div>
-
-    <div class="platforms">
-        <a href="https://twitter.com/Designerkhaled" target="_blank"><i class="fab fa-x"></i> X</a>
-        <a href="https://www.tiktok.com/@khaledmohyaldeen" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
-        <a href="https://www.instagram.com/designerkhaledmohi/" target="_blank"><i class="fab fa-instagram"></i> Instagram&lt;/</a></div></body></html>
+</body></html>
